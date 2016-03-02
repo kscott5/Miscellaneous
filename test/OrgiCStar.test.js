@@ -84,4 +84,16 @@ describe('OrgiCStar test suite', function() {
 		assert.equal(actual.message, SUCCESS_MSG);
 		assert.equal(actual.numberOfTrips, /*expect*/ 3);		
 	});
+	
+	it('The length of the shortest route (in terms of distance to travel) from A to C.', function(){
+		assert.ok(false);
+	});
+	
+	it('The length of the shortest route (in terms of distance to travel) from B to B.', function(){
+		assert.ok(false);
+	});
+	
+	it('The number of different routes from C to C with a distance of less than 30.', function(){
+		// In the sample data, the trips are: CDC, CEBC, CEBCDC, CDCEBC, CDEBC, CEBCEBC, CEBCEBCEBC.
+	}); 
 });
