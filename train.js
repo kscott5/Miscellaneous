@@ -3,6 +3,7 @@
 const OrgiCStar = require('./lib/OrgiCStar')
 var org = new OrgiCStar();
 
+console.log('AB5, BC4, CD8, DC8, DE6, AD5, CE2, EB3, AE7');
 org.initializeGraph('AB5, BC4, CD8, DC8, DE6, AD5, CE2, EB3, AE7');
 
 console.log(org.routeCompletePath('A-B-C'));

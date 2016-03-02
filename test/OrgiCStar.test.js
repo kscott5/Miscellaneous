@@ -71,7 +71,7 @@ describe('OrgiCStar test suite', function() {
 		
 		assert.ok(actual.valid);
 		assert.equal(actual.message, SUCCESS_MSG);
-		assert.equal(actual.travelCost, /*expect*/ 2);		
+		assert.equal(actual.numberOfTrips, /*expect*/ 2);		
 	});
 	
 	it('The number trips starting at A and ending at C with a exactly 4 stops. Total paths 3', function() {
@@ -82,6 +82,6 @@ describe('OrgiCStar test suite', function() {
 		
 		assert.ok(actual.valid);
 		assert.equal(actual.message, SUCCESS_MSG);
-		assert.equal(actual.travelCost, /*expect*/ 3);		
+		assert.equal(actual.numberOfTrips, /*expect*/ 3);		
 	});
 });
