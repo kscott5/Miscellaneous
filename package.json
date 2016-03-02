@@ -30,7 +30,7 @@
   },
   "repository": {},
   "scripts": {
-    "test": "standard && istanbul cover _mocha -- --ui bdd -R spec -t 5000"
+    "test": "mocha"
   },
   "license": "MIT",
   "dependencies": {
