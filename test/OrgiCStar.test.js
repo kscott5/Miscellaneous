@@ -16,7 +16,7 @@ describe('OrgiCStar test suite', function() {
 		
 		assert.ok(actual.valid);
 		assert.equal(actual.message, SUCCESS_MSG);
-		assert.equal(actual.cost, /*expect*/ 9);
+		assert.equal(actual.travelCost, /*expect*/ 9);
 	});
 
 	it('The distance of the route A-D is 5', function() {
@@ -27,7 +27,7 @@ describe('OrgiCStar test suite', function() {
 		
 		assert.ok(actual.valid);
 		assert.equal(actual.message, SUCCESS_MSG);
-		assert.equal(actual.cost, /*expect*/ 5);	
+		assert.equal(actual.travelCost, /*expect*/ 5);	
 	});
 
 	it('The distance of the route A-D-C is 13', function() {
@@ -38,7 +38,7 @@ describe('OrgiCStar test suite', function() {
 		
 		assert.ok(actual.valid);
 		assert.equal(actual.message, SUCCESS_MSG);
-		assert.equal(actual.cost, /*expect*/ 13);
+		assert.equal(actual.travelCost, /*expect*/ 13);
 	});
 
 	it('The distance of the route A-E-B-C-D is 22', function() {
@@ -49,7 +49,7 @@ describe('OrgiCStar test suite', function() {
 		
 		assert.ok(actual.valid);
 		assert.equal(actual.message, SUCCESS_MSG);
-		assert.equal(actual.cost, /*expect*/ 22);
+		assert.equal(actual.travelCost, /*expect*/ 22);
 	});
 
 	it('The distance of the route A-E-D is \'NO SUCH ROUTE\'', function() {
@@ -60,7 +60,7 @@ describe('OrgiCStar test suite', function() {
 		
 		assert.ok(!actual.valid);
 		assert.equal(actual.message, FAILURE_MSG);
-		assert.equal(actual.cost, /*expect*/ 0);		
+		assert.equal(actual.travelCost, /*expect*/ 0);		
 	});
 	
 	it('The number of trips starting at C and ending at C with a maximum of 3. Total paths 2', function() {
@@ -71,7 +71,7 @@ describe('OrgiCStar test suite', function() {
 		
 		assert.ok(actual.valid);
 		assert.equal(actual.message, SUCCESS_MSG);
-		assert.equal(actual.cost, /*expect*/ 2);		
+		assert.equal(actual.travelCost, /*expect*/ 2);		
 	});
 	
 	it('The number trips starting at A and ending at C with a exactly 4 stops. Total paths 3', function() {
@@ -82,6 +82,6 @@ describe('OrgiCStar test suite', function() {
 		
 		assert.ok(actual.valid);
 		assert.equal(actual.message, SUCCESS_MSG);
-		assert.equal(actual.cost, /*expect*/ 3);		
+		assert.equal(actual.travelCost, /*expect*/ 3);		
 	});
 });
