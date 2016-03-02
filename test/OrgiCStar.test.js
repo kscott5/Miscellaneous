@@ -95,5 +95,6 @@ describe('OrgiCStar test suite', function() {
 	
 	it('The number of different routes from C to C with a distance of less than 30.', function(){
 		// In the sample data, the trips are: CDC, CEBC, CEBCDC, CDCEBC, CDEBC, CEBCEBC, CEBCEBCEBC.
+		assert.ok(false);
 	}); 
 });
