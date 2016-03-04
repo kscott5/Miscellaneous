@@ -12,7 +12,7 @@ describe('OrgiCStar test suite', function() {
 		let org = new orgicstar();
 		org.initializeGraph(USER_INPUT);
 
-		var actual = org.routeCompletePath('A-B-C');
+		var actual = org.routePath('A-B-C');
 		
 		assert.ok(actual.valid);
 		assert.equal(actual.message, SUCCESS_MSG);
@@ -23,7 +23,7 @@ describe('OrgiCStar test suite', function() {
 		let org = new orgicstar();
 		org.initializeGraph(USER_INPUT);
 
-		var actual = org.routeCompletePath('A-D');
+		var actual = org.routePath('A-D');
 		
 		assert.ok(actual.valid);
 		assert.equal(actual.message, SUCCESS_MSG);
@@ -34,7 +34,7 @@ describe('OrgiCStar test suite', function() {
   		let org = new orgicstar();
 		org.initializeGraph(USER_INPUT);
 
-		var actual = org.routeCompletePath('A-D-C');
+		var actual = org.routePath('A-D-C');
 		
 		assert.ok(actual.valid);
 		assert.equal(actual.message, SUCCESS_MSG);
@@ -45,7 +45,7 @@ describe('OrgiCStar test suite', function() {
   		let org = new orgicstar();
 		org.initializeGraph(USER_INPUT);
 
-		var actual = org.routeCompletePath('A-E-B-C-D');
+		var actual = org.routePath('A-E-B-C-D');
 		
 		assert.ok(actual.valid);
 		assert.equal(actual.message, SUCCESS_MSG);
@@ -56,7 +56,7 @@ describe('OrgiCStar test suite', function() {
 	  let org = new orgicstar();
 		org.initializeGraph(USER_INPUT);
 
-		var actual = org.routeCompletePath('A-E-D');
+		var actual = org.routePath('A-E-D');
 		
 		assert.ok(!actual.valid);
 		assert.equal(actual.message, FAILURE_MSG);
@@ -73,7 +73,7 @@ describe('OrgiCStar test suite', function() {
             condition: function(conditionArgs){return conditionArgs.nodesInPath<=3}
         };
         
-		var actual = org.routeAllPathsThatStartEndWith(args);
+		var actual = org.routePath(args);
 		
 		assert.ok(actual.valid);
 		assert.equal(actual.message, SUCCESS_MSG);
@@ -90,7 +90,7 @@ describe('OrgiCStar test suite', function() {
             condition: function(conditionArgs){return conditionArgs.nodesInPath==4;}
         };
         
-		var actual = org.routeAllPathsThatStartEndWith(args);
+		var actual = org.routePath(args);
 		
 		assert.ok(actual.valid);
 		assert.equal(actual.message, SUCCESS_MSG);
@@ -108,7 +108,7 @@ describe('OrgiCStar test suite', function() {
             shortestRoute: true         
         };
 
-        var actual = org.routeAllPathsThatStartEndWith(args);
+        var actual = org.routePath(args);
 
         assert.ok(actual.valid);
         assert.equal(actual.message, SUCCESS_MSG);
@@ -127,7 +127,7 @@ describe('OrgiCStar test suite', function() {
             shortestRoute: true         
         };
 
-        var actual = org.routeAllPathsThatStartEndWith(args);
+        var actual = org.routePath(args);
 
         assert.ok(actual.valid);
         assert.equal(actual.message, SUCCESS_MSG);
