@@ -1,4 +1,4 @@
-INTRODUCTION TO THE PROBLEM
+INTRODUCTION TO THE PROBLEM [![Build Status](https://travis-ci.org/kscott5/Miscellaneous.svg?branch=train)](https://travis-ci.org/kscott5/Miscellaneous)
 
 The problem below require some kind of input. You are free to implement
 any mechanism for feeding input into your solution (for example, using hard
