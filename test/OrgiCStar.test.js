@@ -70,7 +70,7 @@ describe('OrgiCStar test suite', function() {
         var args = {
             startNodeId:'C', 
             endNodeId:'C', 
-            comparer: function(nodesInPath){return nodesInPath<=3}
+            comparer: function(comparerArgs){return comparerArgs.nodesInPath<=3}
         };
         
 		var actual = org.routeAllPathsThatStartEndWith(args);
@@ -87,7 +87,7 @@ describe('OrgiCStar test suite', function() {
         var args = {
             startNodeId:'A', 
             endNodeId:'C', 
-            comparer: function(nodesInPath){return nodesInPath==4;}
+            comparer: function(comparerArgs){return comparerArgs.nodesInPath==4;}
         };
         
 		var actual = org.routeAllPathsThatStartEndWith(args);
