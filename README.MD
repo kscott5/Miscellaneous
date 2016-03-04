@@ -72,4 +72,7 @@ Output #8: 9
 Output #9: 9
 Output #10: 7
 
-Considering there was no phone conversation or face-to-face, this is alot of work for a job. I didn't implement the algorithm myself but there's learning and intergration points some elses code (black box). The same holds true for implementing the algorithm myself. You have to learning the psuedocode, etc.
+Considering there was no phone conversation or face-to-face to help flush out 
+questions regarding this exercise for job application, this was is best
+effort. I didn't not implement the dijkstra's algorithm because it could have
+taken just as long to implement as it does to complete this exercise. 
