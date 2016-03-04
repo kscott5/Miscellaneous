@@ -67,7 +67,13 @@ describe('OrgiCStar test suite', function() {
 	  let org = new orgicstar();
 		org.initializeGraph(USER_INPUT);
 
-		var actual = org.routeAllPathsThatStartEndWith('C', 'C', function(nodesInPath){return nodesInPath<=3});
+        var args = {
+            startNodeId:'C', 
+            endNodeId:'C', 
+            comparer: function(nodesInPath){return nodesInPath<=3}
+        };
+        
+		var actual = org.routeAllPathsThatStartEndWith(args);
 		
 		assert.ok(actual.valid);
 		assert.equal(actual.message, SUCCESS_MSG);
@@ -78,7 +84,13 @@ describe('OrgiCStar test suite', function() {
 	  let org = new orgicstar();
 		org.initializeGraph(USER_INPUT);
 
-		var actual = org.routeAllPathsThatStartEndWith('A', 'C', function(nodesInPath){return nodesInPath==4});
+        var args = {
+            startNodeId:'A', 
+            endNodeId:'C', 
+            comparer: function(nodesInPath){return nodesInPath==4;}
+        };
+        
+		var actual = org.routeAllPathsThatStartEndWith(args);
 		
 		assert.ok(actual.valid);
 		assert.equal(actual.message, SUCCESS_MSG);
