@@ -98,11 +98,41 @@ describe('OrgiCStar test suite', function() {
 	});
 	
 	it('The length of the shortest route (in terms of distance to travel) from A to C.', function(){
-		assert.ok(false);
+        // TODO: In terms of stops or cost?????
+        let org = new orgicstar();
+        org.initializeGraph(USER_INPUT);
+
+        var args = {
+            startNodeId:'A', 
+            endNodeId:'C', 
+            shortestRoute: true         
+        };
+
+        var actual = org.routeAllPathsThatStartEndWith(args);
+
+        assert.ok(actual.valid);
+        assert.equal(actual.message, SUCCESS_MSG);
+        assert.equal(actual.output, 'A-B-C');
+        assert.equal(actual.travelStops, /*expect*/ 2);        
 	});
 	
 	it('The length of the shortest route (in terms of distance to travel) from B to B.', function(){
-		assert.ok(false);
+		// TODO: In terms of stops or cost?????
+        let org = new orgicstar();
+        org.initializeGraph(USER_INPUT);
+
+        var args = {
+            startNodeId:'B', 
+            endNodeId:'B', 
+            shortestRoute: true         
+        };
+
+        var actual = org.routeAllPathsThatStartEndWith(args);
+
+        assert.ok(actual.valid);
+        assert.equal(actual.message, SUCCESS_MSG);
+        assert.equal(actual.output, 'B-C-E-B');
+        assert.equal(actual.travelStops, /*expect*/ 3);
 	});
 	
 	it('The number of different routes from C to C with a distance of less than 30.', function(){
