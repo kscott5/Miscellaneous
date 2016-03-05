@@ -13,8 +13,8 @@ console.log(org.routePath('A-D-C'));
 console.log(org.routePath('A-E-B-C-D'));
 console.log(org.routePath('A-E-D'));
 console.log(org.routePath({startNodeId:'C', endNodeId: 'C', comparer: function(comparerArgs) { return comparerArgs.nodesInPath<=3;}}));
-console.log(org.routePath({startNodeId:'A', endNodeId: 'C', comparer: function(comparerArgs) { return comparerArgs.nodesInPath>=4;}}));
+console.log(org.routePath({startNodeId:'A', endNodeId: 'C', shortestRoute: false, comparer: function(comparerArgs) { return comparerArgs.nodesInPath==4;}}));
 console.log(org.routePath({startNodeId:'A', endNodeId: 'C', shortestRoute: true}));
-console.log(org.routePath({startNodeId:'B', endNodeId: 'B', shortestRoute: false}));
+console.log(org.routePath({startNodeId:'B', endNodeId: 'B', shortestRoute: true}));
 
 

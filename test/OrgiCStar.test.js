@@ -113,7 +113,7 @@ describe('OrgiCStar test suite', function() {
         assert.ok(actual.valid);
         assert.equal(actual.message, SUCCESS_MSG);
         assert.equal(actual.output, 'A-B-C');
-        assert.equal(actual.travelStops, /*expect*/ 2);        
+        assert.equal(actual.travelCost, /*expect*/ 9);        
 	});
 	
 	it('The length of the shortest route (in terms of distance to travel) from B to B.', function(){
@@ -132,7 +132,7 @@ describe('OrgiCStar test suite', function() {
         assert.ok(actual.valid);
         assert.equal(actual.message, SUCCESS_MSG);
         assert.equal(actual.output, 'B-C-E-B');
-        assert.equal(actual.travelStops, /*expect*/ 3);
+        assert.equal(actual.travelCost, /*expect*/ 9);
 	});
 	
 	it('The number of different routes from C to C with a distance of less than 30.', function(){
