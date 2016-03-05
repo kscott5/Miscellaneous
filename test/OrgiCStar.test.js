@@ -70,7 +70,7 @@ describe('OrgiCStar test suite', function() {
         var args = {
             startNodeId:'C', 
             endNodeId:'C', 
-            condition: function(conditionArgs){return conditionArgs.nodesInPath<=3}
+            condition: function(conditionArgs){return conditionArgs.travelStops<=3}
         };
         
 		var actual = org.routePath(args);
@@ -87,7 +87,7 @@ describe('OrgiCStar test suite', function() {
         var args = {
             startNodeId:'A', 
             endNodeId:'C', 
-            condition: function(conditionArgs){return conditionArgs.nodesInPath==4;}
+            condition: function(conditionArgs){return conditionArgs.travelStops==4;}
         };
         
 		var actual = org.routePath(args);
