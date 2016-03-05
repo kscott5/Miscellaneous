@@ -136,7 +136,25 @@ describe('OrgiCStar test suite', function() {
 	});
 	
 	it('The number of different routes from C to C with a distance of less than 30.', function(){
-		// In the sample data, the trips are: CDC, CEBC, CEBCDC, CDCEBC, CDEBC, CEBCEBC, CEBCEBCEBC.
-		assert.ok(false);
+	   let org = new orgicstar();
+        org.initializeGraph(USER_INPUT);
+
+        var args = {
+            startNodeId:'C', 
+            endNodeId:'C', 
+            condition: function(conditionArgs){return conditionArgs.travelCost<30}
+        };
+
+        var expectedData = ['C-D-C', 'C-E-B-C', 'C-E-B-C-D-C', 'C-D-C-E-B-C', 'C-D-E-B-C', 'C-E-B-C-E-B-C', 'C-E-B-C-E-B-C-E-B-C']	 
+        var actual = org.routePath(args);
+
+        assert.ok(actual.valid);
+        assert.equal(actual.message, SUCCESS_MSG);
+        assert.equal(actual.numberOfTrips, /*expect*/ 7);
+        assert.equal(actual.output.length, expectedData.length);
+        
+        for(var i=0; i<expectedData.length; i++){
+            assert.ok(actual.output.indexOf(expectedData[i])>-1);
+        }
 	}); 
 });
