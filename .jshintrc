@@ -1,0 +1,9 @@
+{
+    "strict": true,
+    "esversion": 6,
+    "module": true,
+    "mocha": true,
+    "debug": true,
+    "node": true,
+    "undef": true
+}

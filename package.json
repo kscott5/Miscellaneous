@@ -11,36 +11,39 @@
   "keywords": [
     "icstar",
     "graph",
-    "shortest path"
+    "shortest path",
+    "algorithms",
+    "unit testing",
+    "dijkstra"
   ],
   "devDependencies": {
-    "babel-eslint": "^4.0.10",
-    "browserify": "^11.2.0",
-    "codecov.io": "^0.1.6",
+    "babel-core": "^5.5.0",
+    "babel-eslint": "^4.1.6",
+    "del": "^2.0.2",
+    "eslint-config-xo-space": "^0.7.0",
+    "eslint-plugin-babel": "^3.0.0",
     "gulp": "^3.9.0",
-    "gulp-babel": "^5.3.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-uglify": "^1.4.2",
-    "istanbul": "^0.3.13",
+    "gulp-babel": "^5.1.0",
+    "gulp-eslint": "^1.0.0",
+    "gulp-exclude-gitignore": "^1.0.0",
+    "gulp-istanbul": "^0.10.3",
+    "gulp-jshint": "^2.0.0",
+    "gulp-mocha": "^2.0.0",
+    "gulp-nsp": "^2.1.0",
+    "gulp-plumber": "^1.0.0",
+    "isparta": "^3.0.3",
+    "jshint": "^2.9.1",
     "mocha": "^2.2.4",
-    "must": "^0.13.1",
-    "sinon": "^1.14.1",
-    "standard": "^5.1.0",
-    "vinyl-source-stream": "^1.1.0"
+    "must": "^0.13.1"
   },
   "repository": {},
   "scripts": {
-    "test": "mocha"
+    "prepublish": "gulp prepublish",
+    "test": "gulp"
   },
   "license": "MIT",
   "dependencies": {
     "node-dijkstra": "^2.2.1",
     "readline-sync": "^1.4.1"
-  },
-  "standard": {
-    "parser": "babel-eslint",
-    "ignore": [
-      "/dist/"
-    ]
   }
 }

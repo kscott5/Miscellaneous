@@ -1,32 +1,74 @@
-'use strict'
+'use strict';
 
-const babel = require('gulp-babel')
-const browserify = require('browserify')
-const gulp = require('gulp')
-const rename = require('gulp-rename')
-const source = require('vinyl-source-stream')
-const uglify = require('gulp-uglify')
+var path = require('path');
+var gulp = require('gulp');
+var eslint = require('gulp-eslint');
+var jshint = require('gulp-jshint');
+var excludeGitignore = require('gulp-exclude-gitignore');
+var mochatest = require('gulp-mocha');
+var istanbul = require('gulp-istanbul');
+var nsp = require('gulp-nsp');
+var plumber = require('gulp-plumber');
+var babel = require('gulp-babel');
+var del = require('del');
+var isparta = require('isparta');
 
-/**
- * Prepares the files for browser usage
- *
- *  - Boundle with browserify
- *  - Transpile with Babel
- *  - Minify with uglify
- */
-gulp.task('build', [ 'bundle' ], function () {
-  gulp.src('./dist/train.js')
+// Initialize the babel transpiler so ES2015 files gets compiled
+// when they're loaded
+require('babel-core/register');
+
+gulp.task('static', function () {
+  return gulp.src('**/*.js')
+    .pipe(excludeGitignore())
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError())
+    .pipe(jshint())
+    .pipe(jshint.reporter("default"));
+});
+
+gulp.task('nsp', function (cb) {
+  nsp({package: path.resolve('package.json')}, cb);
+});
+
+gulp.task('pre-test', function () {
+  return gulp.src('lib\**\*.js')
+    .pipe(excludeGitignore())
+    .pipe(istanbul({
+      includeUntested: true,
+      instrumenter: isparta.Instrumenter
+    }))
+    .pipe(istanbul.hookRequire());
+});
+
+gulp.task('test', ['pre-test'], function (cb) {
+  var mochaErr;
+
+  gulp.src('test/**/*.js')
+    .pipe(plumber())
+    .pipe(mochatest({reporter: 'spec'}))
+    .on('error', function (err) {
+      mochaErr = err;
+    })
+    .pipe(istanbul.writeReports())
+    .on('end', function () {
+      cb(mochaErr);
+    });
+});
+
+gulp.task('watch', function () {
+  gulp.watch(['lib\**\*.js', 'test/**'], ['test']);
+});
+
+gulp.task('babel', ['clean'], function () {
+  return gulp.src('lib\**\*.js')
     .pipe(babel())
-    .pipe(gulp.dest('./dist'))
-    .pipe(uglify())
-    .pipe(rename({ suffix: '.min' }))
-    .pipe(gulp.dest('./dist'))
-})
+    .pipe(gulp.dest('dist'));
+});
 
-gulp.task('bundle', function () {
-  let b = browserify({ entries: './libs/OrgiCStar.js' })
+gulp.task('clean', function () {
+  return del('dist');
+});
 
-  return b.bundle()
-    .pipe(source('train.js'))
-    .pipe(gulp.dest('./dist'))
-})
+gulp.task('prepublish', ['nsp', 'babel']);
+gulp.task('default', ['static', 'test']);

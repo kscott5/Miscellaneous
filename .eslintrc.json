@@ -1,10 +1,11 @@
 {
-    "parserOptions": {
+    "parser-options": {
         "ecmaVersion": 6,
-        "sourceType": "module",
+        "sourceType": "script",
+        "impliedStrict": true,
         "ecmaFeatures": {
             "impliedStrict": true
-        },
+        }
     },
     "env": {
         "node": true,
@@ -13,7 +14,10 @@
     },
     "parser": "babel-eslint",
     "rules": {
-        "strict": 1,
-        "no-console": 0
+        "strict": [1, "global"],
+        "no-console": 0       
+    },
+    "globals": {
+        "console": true
     }
 }
